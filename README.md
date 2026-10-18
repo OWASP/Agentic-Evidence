@@ -147,7 +147,7 @@ Before starting substantial work:
 4.  Do not submit secrets, real customer data, or sensitive production
     traces.
 
-See [Getting Started](GETTING_STARTED.md) and the repository's
+See the repository's
 contribution guidelines for current instructions.
 
 ## License
