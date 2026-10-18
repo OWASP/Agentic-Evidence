@@ -110,9 +110,9 @@ verified evidence, and unknowns.
 
 ## Repository documentation
 
--   [Getting Started](GETTING_STARTED.md): local setup and first-run
+-   [Getting Started](GETTING_STARTED.md)https://github.com/OWASP/Agentic-Evidence/blob/main/FAQ.md: local setup and first-run
     workflow.
--   [Resources](RESOURCES.md): standards, specifications, and related
+-   [Resources]([RESOURCES.md](https://github.com/OWASP/Agentic-Evidence/blob/main/RESOURCES.md)): standards, specifications, and related
     security work.
 -   [FAQ](FAQ.md): scope, evidence trust, telemetry, and contribution
     questions.
