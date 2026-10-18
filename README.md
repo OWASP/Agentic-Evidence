@@ -2,163 +2,118 @@
 
 ## Security Evidence and Observability for Agentic AI
 
-**Agentic Evidence** is an OWASP open-source reference project exploring
-how to collect, correlate, and evaluate security evidence for agentic AI
-execution.
+**Agentic Evidence** is an OWASP open-source reference project exploring how to collect, correlate, and evaluate security evidence for agentic AI execution.
 
-Agent observability can show that an event was logged. A security
-investigation needs to establish what happened, which identity and
-permissions were involved, what inputs influenced the action, what
-policy decision was made, and which conclusions the available evidence
-actually supports.
+Agent observability can show that an event was logged. A security investigation needs to establish what happened, which identities and permissions were involved, what inputs influenced the action, which policy decisions were made, and what conclusions the available evidence actually supports.
 
-Agentic Evidence focuses on **evidence sufficiency, execution
-reconstruction, and security investigation**. It is intended to
-complement agent-security taxonomies and testing projects, not duplicate
-them.
+Agentic Evidence focuses on **evidence sufficiency, execution reconstruction, and security investigation**. It complements agent security taxonomies and testing projects rather than duplicating them.
 
-> **Project status:** The project is in incubation and the initial
-> implementation is being planned. The architecture and commands in
-> these documents describe the intended MVP and should be updated as
-> implementation decisions become final.
+> **Project status:** The project is in incubation, and the initial implementation is being planned. The architecture and commands described in this document represent the intended MVP and may change as implementation decisions are finalized.
 
 ## Goals
 
--   Reconstruct an agent run from correlated execution and security
-    events.
--   Connect actions to identities, inputs, retrieved content, tool
-    calls, authorization decisions, and outcomes.
--   Make evidence provenance and evidence gaps visible to investigators.
--   Demonstrate what can and cannot be concluded from collected
-    evidence.
--   Provide deterministic, repeatable scenarios that contributors can
-    run locally.
--   Publish an extensible evidence taxonomy and practitioner guidance.
+- Reconstruct agent executions from correlated execution and security events.
+- Connect actions to identities, inputs, retrieved content, tool calls, authorization decisions, and outcomes.
+- Make evidence provenance and evidence gaps visible to investigators.
+- Demonstrate what can and cannot be concluded from collected evidence.
+- Provide deterministic, repeatable scenarios that contributors can run locally.
+- Publish an extensible evidence taxonomy and practical guidance for security practitioners.
 
-## Initial scenarios
+## Initial Scenarios
 
-1.  **Benign execution:** Establish a baseline for a normal agent
-    workflow.
-2.  **Retrieval poisoning:** Show how retrieved content can influence an
-    agent action, and whether the evidence captures that relationship.
-3.  **Tool-descriptor modification:** Explore whether the evidence can
-    establish which tool descriptor was observed or used, and whether
-    changes are detectable.
+1. **Benign execution:** Establish a baseline for a normal agent workflow.
+2. **Retrieval poisoning:** Demonstrate how retrieved content can influence an agent action and whether the evidence captures that relationship.
+3. **Tool descriptor modification:** Evaluate whether the evidence can establish which tool descriptor was observed or used and whether modifications are detectable.
 
-Scenarios should be deterministic and use synthetic data. The project
-should not claim that an attack is detectable unless the implementation
-has the evidence and tests to support that claim.
+Scenarios should be deterministic and use synthetic data. The project must not claim that an attack is detectable unless the implementation and tests support that claim.
 
 ## Intended MVP
 
-The first release is planned as a local reference application with:
+The first release is planned as a local reference application featuring:
 
--   A deterministic scenario runner.
--   A versioned JSON evidence schema.
--   OpenTelemetry execution telemetry and correlation.
--   An evidence recorder and local evidence store.
--   A security investigation interface with timeline, event details, and
-    evidence gaps.
--   Exportable evidence bundles.
--   Automated tests, Docker Compose setup, and contributor
-    documentation.
+- A deterministic scenario runner.
+- A versioned JSON evidence schema.
+- OpenTelemetry execution telemetry and correlation.
+- An evidence recorder and local evidence store.
+- A security investigation interface with execution timelines, event details, and evidence gaps.
+- Exportable evidence bundles.
+- Automated tests, Docker Compose configuration, and contributor documentation.
 
-### Proposed technology baseline
+### Proposed Technology Stack
 
-  
-  -Application/API    Python/Go and FastAPI
-  -Evidence format    Versioned JSON with JSON Schema
-  -Telemetry          OpenTelemetry SDK and OTLP
-  -Local storage      SQLite and/or JSON fixtures
-  -Investigation UI   Streamlit or an equivalently lightweight UI
-  -Local deployment   Docker Compose
-  -Tests              pytest and schema validation
-  -CI                 GitHub Actions
+| Component | Proposed Technology |
+|---|---|
+| Application/API | Python with FastAPI, or Go where appropriate |
+| Evidence format | Versioned JSON with JSON Schema |
+| Telemetry | OpenTelemetry SDK and OTLP |
+| Local storage | SQLite and/or JSON fixtures |
+| Investigation UI | Streamlit or an equivalent lightweight UI |
+| Local deployment | Docker Compose |
+| Testing | pytest and schema validation |
+| Continuous integration | GitHub Actions |
 
-These are implementation proposals, not a promise that every component
-is already available. Architecture decisions should be recorded in the
-repository and changed only when there is a clear reason.
+These are proposed implementation choices, not a guarantee that every component is available. Architecture decisions should be documented in the repository and changed only when there is a clear technical justification.
 
-## What this project is not
+## What This Project Is Not
 
 The initial release is not intended to be:
 
--   A production SIEM or general-purpose observability platform.
--   An agent runtime, model provider, or autonomous response engine.
--   A guarantee that an agent is safe or that recorded evidence is
-    truthful.
--   A replacement for authorization enforcement, runtime controls, or
-    incident response.
--   A requirement to use a live LLM, Kubernetes, or cloud
-    infrastructure.
+- A production SIEM or general-purpose observability platform.
+- An agent runtime, model provider, or autonomous response engine.
+- A guarantee that an agent is safe or that recorded evidence is truthful.
+- A replacement for authorization enforcement, runtime security controls, or incident response.
+- Dependent on a live LLM, Kubernetes, or cloud infrastructure.
 
-Telemetry is not proof by itself. Events may be missing, incorrectly
-correlated, or generated by a compromised component. The application
-must distinguish observed records, component assertions, independently
-verified evidence, and unknowns.
+**Telemetry is not proof by itself.** Events may be missing, incorrectly correlated, or generated by a compromised component. The application must distinguish observed records, component assertions, independently verified evidence, and unknowns.
 
-## Conceptual workflow
+## Conceptual Workflow
 
-1.  Run a deterministic scenario.
-2.  Generate execution and security events.
-3.  Correlate events to an agent run and trace context.
-4.  Validate the event structure and record provenance.
-5.  Inspect the timeline, authorization decisions, outcomes, and
-    evidence gaps.
-6.  Export the evidence bundle and compare it with expected scenario
-    findings.
+1. Run a deterministic scenario.
+2. Generate execution and security events.
+3. Correlate events with an agent run and trace context.
+4. Validate event structures and record provenance.
+5. Inspect execution timelines, authorization decisions, outcomes, and evidence gaps.
+6. Export the evidence bundle and compare it with expected scenario findings.
 
-## Repository documentation
+## Repository Documentation
 
--   [Getting Started]([GETTING_STARTED.md]https://github.com/OWASP/Agentic-Evidence/blob/main/FAQ.md): local setup and first-run
-    workflow.
--   [Resources]([RESOURCES.md](https://github.com/OWASP/Agentic-Evidence/blob/main/RESOURCES.md)): standards, specifications, and related
-    security work.
--   [FAQ](FAQ.md): scope, evidence trust, telemetry, and contribution
-    questions.
+- [Getting Started](GETTING_STARTED.md): Local setup and first-run workflow.
+- [Resources](RESOURCES.md): Standards, specifications, and related security projects.
+- [FAQ](FAQ.md): Project scope, evidence trust, telemetry limitations, and contribution questions.
 
-## Project principles
+## Project Principles
 
--   **Evidence before claims:** findings must be supported by explicit
-    evidence.
--   **Make uncertainty visible:** missing evidence is a result, not a
-    reason to invent a conclusion.
--   **Repeatability:** scenarios should have deterministic inputs and
-    testable expected outcomes.
--   **Least data:** use synthetic inputs by default and avoid collecting
-    secrets or unnecessary personal data.
--   **Interoperability:** prefer documented schemas and established
-    telemetry conventions where suitable.
--   **Security by design:** treat evidence ingestion, storage, exports,
-    and the UI as security-sensitive components.
+- **Evidence before claims:** Findings must be supported by explicit evidence.
+- **Make uncertainty visible:** Missing evidence is a result, not a reason to invent a conclusion.
+- **Repeatability:** Scenarios must have deterministic inputs and testable expected outcomes.
+- **Least data:** Use synthetic inputs by default and avoid collecting secrets or unnecessary personal data.
+- **Interoperability:** Prefer documented schemas and established telemetry conventions where appropriate.
+- **Security by design:** Treat evidence ingestion, storage, exports, and the investigation interface as security-sensitive components.
 
 ## Contributing
 
-Contributions are welcome in areas such as schema design, scenario
-development, telemetry correlation, evidence analysis, tests,
-documentation, and usability.
+Contributions are welcome in the following areas:
+
+- Evidence schema design and validation.
+- Agent security scenarios and reproducible test cases.
+- Telemetry collection and event correlation.
+- Evidence provenance, integrity, and analysis.
+- Investigation interface improvements.
+- Automated testing and documentation.
 
 Before starting substantial work:
 
-1.  Check existing issues and the project roadmap.
-2.  Open or comment on an issue describing the proposed change.
-3.  Keep pull requests focused and include tests or reproducible
-    evidence where applicable.
-4.  Do not submit secrets, real customer data, or sensitive production
-    traces.
+1. Review existing issues and the project roadmap.
+2. Open or comment on an issue describing the proposed change.
+3. Keep pull requests focused and include tests or reproducible evidence where applicable.
+4. Never submit secrets, real customer data, or sensitive production traces.
 
-See the repository's
-contribution guidelines for current instructions.
+Follow the repository's contribution guidelines for current requirements.
 
 ## License
 
-The project is intended to use the **Apache License 2.0**, subject to
-the license file published in the repository. Consult the repository's
-`LICENSE` file for the authoritative terms.
+The project is intended to use the **Apache License 2.0**, subject to the license file published in the repository. Consult the repository's `LICENSE` file for the authoritative terms.
 
 ## Acknowledgements
 
-This is an OWASP project. Use the official project listing and
-repository metadata for current leadership, contact details, and project
-status. Do not assume OWASP endorsement of third-party tools or services
-referenced here.
+Agentic Evidence is an OWASP project. Refer to the official OWASP project listing and repository metadata for current leadership, contact details, and project status. References to third-party tools and services do not imply OWASP endorsement.
