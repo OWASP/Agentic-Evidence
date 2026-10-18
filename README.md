@@ -65,16 +65,15 @@ The first release is planned as a local reference application with:
 
 ### Proposed technology baseline
 
-  Area               Initial direction
-  ------------------ ---------------------------------------------
-  Application/API    Python/Go and FastAPI
-  Evidence format    Versioned JSON with JSON Schema
-  Telemetry          OpenTelemetry SDK and OTLP
-  Local storage      SQLite and/or JSON fixtures
-  Investigation UI   Streamlit or an equivalently lightweight UI
-  Local deployment   Docker Compose
-  Tests              pytest and schema validation
-  CI                 GitHub Actions
+  
+  -Application/API    Python/Go and FastAPI
+  -Evidence format    Versioned JSON with JSON Schema
+  -Telemetry          OpenTelemetry SDK and OTLP
+  -Local storage      SQLite and/or JSON fixtures
+  -Investigation UI   Streamlit or an equivalently lightweight UI
+  -Local deployment   Docker Compose
+  -Tests              pytest and schema validation
+  -CI                 GitHub Actions
 
 These are implementation proposals, not a promise that every component
 is already available. Architecture decisions should be recorded in the
