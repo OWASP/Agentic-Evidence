@@ -115,5 +115,5 @@ Follow the repository's contribution guidelines for current requirements.
 The project is intended to use the **Apache License 2.0**, subject to the license file published in the repository. Consult the repository's `LICENSE` file for the authoritative terms.
 
 ## Acknowledgements
-
+For anything not covered in documentation please contact Aamiruddin Syed(SyedDS), Project Leader .
 Agentic Evidence is an OWASP project. Refer to the official OWASP project listing and repository metadata for current leadership, contact details, and project status. References to third-party tools and services do not imply OWASP endorsement.
