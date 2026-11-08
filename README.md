@@ -77,7 +77,10 @@ The initial release is not intended to be:
 
 ## Repository Documentation
 
-- [Getting Started](GETTING_STARTED.md): Local setup and first-run workflow.
+- [Contributing](CONTRIBUTING.md): Contribution tracks, checks, and the definition of done.
+- [Handoff](HANDOFF.md): Current state, milestones with acceptance criteria, and open questions.
+- [Glossary](docs/glossary.md): Trust levels, gaps, claims, and other shared terms.
+- [Security Policy](SECURITY.md): How to report a vulnerability privately.
 - [Resources](RESOURCES.md): Standards, specifications, and related security projects.
 - [FAQ](FAQ.md): Project scope, evidence trust, telemetry limitations, and contribution questions.
 
@@ -103,12 +106,12 @@ Contributions are welcome in the following areas:
 
 Before starting substantial work:
 
-1. Review existing issues and the project roadmap.
+1. Review existing issues and the [milestones](HANDOFF.md#2-milestones).
 2. Open or comment on an issue describing the proposed change.
 3. Keep pull requests focused and include tests or reproducible evidence where applicable.
 4. Never submit secrets, real customer data, or sensitive production traces.
 
-Follow the repository's contribution guidelines for current requirements.
+Follow the [contribution guidelines](CONTRIBUTING.md) for current requirements.
 
 ## License
 

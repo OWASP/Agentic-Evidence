@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: Apache-2.0
+# Interim ownership until maintainers are formalised (OD-6 / HANDOFF Q2).
+# Add co-maintainers here; the project leader reviews everything by default.
+*                     @syedDS
+
+# The contract, trust model and decisions need maintainer review (CONTRIBUTING.md "How to contribute").
+/schemas/             @syedDS
+/DECISIONS.md         @syedDS
+/CONSTRAINTS.md       @syedDS
+/ARCHITECTURE.md      @syedDS

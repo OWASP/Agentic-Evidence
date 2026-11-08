@@ -1,0 +1,5 @@
+# Normalise line endings so canonical serialization and golden bundles (DT-3)
+# are byte-identical regardless of the contributor's OS.
+* text=auto eol=lf
+*.zip binary
+*.png binary
