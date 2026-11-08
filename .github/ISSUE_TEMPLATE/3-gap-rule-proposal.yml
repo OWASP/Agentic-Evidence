@@ -1,0 +1,52 @@
+name: Gap rule proposal
+description: Propose a new G-* rule that flags missing or insufficient evidence.
+labels: ["gap-rule", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A gap rule protects a conclusion. It must state the conclusion it protects, the records it requires, and why their absence matters.
+        Rules may only use explicit fields. Inferring links from timing or proximity is out of scope (ARCHITECTURE.md §5).
+  - type: input
+    id: rule_id
+    attributes:
+      label: Proposed rule id
+      placeholder: G-AREA-NNN
+    validations:
+      required: true
+  - type: textarea
+    id: conclusion
+    attributes:
+      label: Conclusion it protects
+      placeholder: the invocation was authorised
+    validations:
+      required: true
+  - type: textarea
+    id: fires
+    attributes:
+      label: Fires when
+      description: Precise condition over record kinds and fields.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why the absence matters
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - high (blocks a security conclusion)
+        - low (degrades a conclusion)
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Test fixtures
+      description: One fixture where it fires, one where it doesn't, and (if trust matters) one where the required record is present but only asserted.
+    validations:
+      required: true

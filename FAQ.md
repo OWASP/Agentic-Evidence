@@ -124,7 +124,8 @@ organization's data-handling requirements.
 
 ## How can I contribute?
 
-Start by checking the roadmap and open issues. Useful contributions
+Start by checking the [milestones](HANDOFF.md#2-milestones), the
+[contribution guidelines](CONTRIBUTING.md), and open issues. Useful contributions
 include evidence-schema design, deterministic scenarios, telemetry
 correlation, UI improvements, test cases, documentation, and independent
 validation. Discuss substantial changes in an issue before opening a
@@ -132,9 +133,8 @@ pull request.
 
 ## How should I report a security vulnerability in the project?
 
-Use the private reporting method documented in the repository's
-`SECURITY.md`, once published. Do not disclose an unpatched
-vulnerability in a public issue.
+Use the private reporting method documented in [SECURITY.md](SECURITY.md).
+Do not disclose an unpatched vulnerability in a public issue.
 
 ## What is the license?
 

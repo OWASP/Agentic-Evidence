@@ -1,0 +1,45 @@
+name: Schema change request
+description: Propose a change to the evidence schema (record, gap, claim, bundle manifest).
+labels: ["schema", "needs-adr", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The JSON Schema in `schemas/` is the canonical contract (ADR-0003). A schema change needs an ADR in DECISIONS.md with status Proposed before any code.
+        Schema 0.x may break between minor versions (EN-3), but every break still needs a stated reason.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Which investigative question can't be answered (or is answered wrongly) with the current schema?
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+      description: Fields, types, enums, required-ness. A JSON snippet helps.
+      render: jsonc
+    validations:
+      required: true
+  - type: textarea
+    id: trust
+    attributes:
+      label: Trust and provenance impact
+      description: Could this change let an emitter influence its own trust level, or blur observed vs asserted? How is that prevented?
+    validations:
+      required: true
+  - type: dropdown
+    id: compat
+    attributes:
+      label: Compatibility
+      options:
+        - Additive (existing fixtures stay valid)
+        - Breaking (fixtures need migration)
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

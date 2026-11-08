@@ -1,0 +1,57 @@
+name: Scenario proposal
+description: Propose a deterministic, synthetic scenario, or a new evidence variant of an existing one.
+labels: ["scenario", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A scenario demonstrates **what an investigator can and cannot conclude** from the evidence, not that an attack is "caught".
+        Variants change **which evidence is emitted**, not the agent's behaviour (ADR-0013).
+        v0.1 is limited to three scenarios (SC-5). New scenarios target v0.2+ unless they are a variant of S1-S3.
+  - type: textarea
+    id: question
+    attributes:
+      label: Security question
+      description: The investigative question this scenario answers. Phrase it as "can the evidence establish X?".
+      placeholder: Can the evidence establish which identity authorised the tool call?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Scripted execution
+      description: Actors, components, available tools, policy, and the deterministic step list. The agent is a scripted stub with no live LLM.
+    validations:
+      required: true
+  - type: textarea
+    id: variants
+    attributes:
+      label: Evidence variants
+      description: For each variant, which records are emitted and on which channel (self-report / interception / reference-check). Include at least one variant where the evidence is insufficient.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected gaps and claim statuses per variant
+      description: Gap rule ids and claim statuses (supported / supported_by_assertion_only / contradicted / insufficient_evidence).
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: What this scenario does NOT show
+      description: Explicit non-claims and limitations.
+    validations:
+      required: true
+  - type: input
+    id: taxonomy
+    attributes:
+      label: Related taxonomy references (optional, informational only)
+  - type: checkboxes
+    id: data
+    attributes:
+      label: Data handling
+      options:
+        - label: All data is synthetic and uses reserved names (example.com / .test / .invalid, RFC 5737 IPs).
+          required: true

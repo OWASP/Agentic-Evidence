@@ -223,13 +223,13 @@ Never:
 Update relevant documentation when a change affects setup, architecture, evidence schema, API behavior, configuration, security assumptions, scenario execution, test commands, or project status.
 
 - Keep `README.md` concise and user-facing.
-- Use `GETTING_STARTED.md` for setup and first contribution guidance.
-- Use `CONTRIBUTING.md` for the human contribution process.
+- Use `CONTRIBUTING.md` for setup, first contribution guidance, and the human contribution process.
+- `GETTING_STARTED.md` is reserved for the runnable walkthrough planned in milestone M5.
 - Use this `AGENTS.md` for AI-agent engineering instructions.
 - Mark proposed capabilities as planned and implemented capabilities as implemented.
 - Include exact setup and validation commands only after verifying them against the current repository.
 
-Do not create `CLAUDE.md`, `SKILL.md`, `MEMORY.md`, `PLAN.md`, `DESIGN.md`, `DATABASE.md`, or `API.md` unless a concrete project need justifies the additional document. If a durable design decision is needed, propose a focused architecture decision record or narrowly scoped document rather than duplicating this file.
+Do not create  `SKILL.md`, `MEMORY.md`, `PLAN.md`, `DESIGN.md`, `DATABASE.md`, or `API.md` unless a concrete project need justifies the additional document. If a durable design decision is needed, propose a focused architecture decision record or narrowly scoped document rather than duplicating this file.
 
 ## 12. Git and pull request expectations
 

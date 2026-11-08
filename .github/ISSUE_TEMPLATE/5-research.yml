@@ -1,0 +1,27 @@
+name: Research question
+description: A literature, standards, or evidence-modelling question that informs the schema or scenarios.
+labels: ["research", "needs-triage"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters for this project
+      description: Which schema field, gap rule, claim, or scenario would this inform?
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Proposed method and sources
+      description: Standards, specs, papers, or experiments you intend to use.
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected output
+      description: Usually a write-up under docs/research/ that states the question, method, sources, findings, and limitations.

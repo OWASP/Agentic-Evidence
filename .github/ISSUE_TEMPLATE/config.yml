@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability (private)
+    url: https://github.com/OWASP/Agentic-Evidence/security/advisories/new
+    about: Do not open a public issue for vulnerabilities. See SECURITY.md.
+  - name: Questions about scope or terminology
+    url: https://github.com/OWASP/Agentic-Evidence/blob/main/FAQ.md
+    about: Check the FAQ and docs/glossary.md first. If they don't answer it, open a research issue.

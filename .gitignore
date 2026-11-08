@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Environments and tool caches
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local scenario output (ae run --out runs/)
+runs/
+
+# Local agent/editor state. CLAUDE.md is Claude Code's local instruction file and stays
+# out of the public repo; public agent guidance is AGENTS.md.
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+.remember/
+.vscode/
+.idea/

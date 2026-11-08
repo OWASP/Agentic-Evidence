@@ -1,0 +1,51 @@
+name: Bug report
+description: Something in the repository (code, CI, docs, links) is broken or wrong.
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic data only. Never paste secrets, production traces, real prompts, or customer data.
+        Security vulnerabilities go through SECURITY.md, not this form.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you observed, including exact error output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Exact commands, plus scenario id, variant, and seed if relevant.
+      placeholder: |
+        1. git checkout <commit>
+        2. make setup
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: OS, Python version, commit SHA.
+    validations:
+      required: true
+  - type: dropdown
+    id: overclaim
+    attributes:
+      label: Does this bug make the project claim more than the evidence supports?
+      description: For example, a doc or output that says something was "detected" or "verified" when it wasn't. These are treated as high priority.
+      options:
+        - "No"
+        - "Yes"
+        - "Not sure"
+    validations:
+      required: true
