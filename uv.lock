@@ -1,9 +1,18 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.12"
 resolution-markers = [
     "python_full_version >= '3.15'",
     "python_full_version < '3.15'",
+]
+
+[[package]]
+name = "agent-evidence-vectors"
+version = "0.36.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fb/f4/7bcfb431b4beace86ee2bdbbb08835f5fca308f1b9480a0757f11c1b4255/agent_evidence_vectors-0.36.3.tar.gz", hash = "sha256:210e42172511495bca47a20c88903800cf405126d7f956bb4be839f354052764", size = 4405123, upload-time = "2026-11-07T09:04:27.201Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/14/9c/a7460a5dbc490a9ee6dd9483104dcf7feb8ff9f39abf27a94c2ed3e65446/agent_evidence_vectors-0.36.3-py3-none-any.whl", hash = "sha256:c2a8c01e6e5f777405b6102511b2ce147a6fdae7a2a13ca80fbe9c6bdbac2a34", size = 12100855, upload-time = "2026-11-07T09:04:24.551Z" },
 ]
 
 [[package]]
@@ -13,6 +22,7 @@ source = { editable = "." }
 
 [package.dev-dependencies]
 dev = [
+    { name = "agent-evidence-vectors" },
     { name = "mypy" },
     { name = "pytest" },
     { name = "ruff" },
@@ -22,6 +32,7 @@ dev = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "agent-evidence-vectors", specifier = "==0.36.3" },
     { name = "mypy", specifier = ">=1.13" },
     { name = "pytest", specifier = ">=8.3" },
     { name = "ruff", specifier = ">=0.8" },
