@@ -124,5 +124,6 @@ Append one entry per working session. Newest first.
 
 | Date | Who | What changed | Next |
 |------|-----|-------------|------|
+| 2026-11-14 | paolocostanzo | Research write-up `docs/research/mcp-approval-binding-and-digest-provenance.md` (#5 points 2 and 3) and index line in `docs/research/README.md`; no milestone state change | #6 ADR; S2/S3 specs issue; #4 for digest bytes |
 | 2026-11-08 | Claude Code (with SyedDS) | M0 governance docs, issue forms, PR template, CODEOWNERS, empty package, CI + secret scan + Dependabot, doc-link test; target directory layout with milestone placeholders; CLAUDE.md made local-only (git-ignored); removed redundant GETTING_STARTED.md and ROADMAP.md | PR + maintainer settings, issue #1 reply |
 | 2026-11-06 | - | Added CLAUDE.md, CONSTRAINTS.md, ARCHITECTURE.md, DECISIONS.md, HANDOFF.md; revised README.md | M0 review |
