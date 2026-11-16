@@ -2,7 +2,7 @@
 
 The live state of the project. Whoever picks this up next — human or agent — starts here. **Update this file in every PR that changes project state.**
 
-_Last updated: 2026-11-08_
+_Last updated: 2026-11-16_
 
 ---
 
@@ -16,7 +16,7 @@ _Last updated: 2026-11-08_
   - Issue forms (bug, scenario proposal, gap-rule proposal, schema change, research) and a PR template under `.github/`.
   - Empty Python 3.12 package `src/agentic_evidence/` (version only), `pyproject.toml`, `uv.lock`, `Makefile` (`setup`, `lint`, `test`, `check`), `.gitattributes` (LF everywhere, for DT-3), `.gitignore`.
   - Directory layout from the target in CLAUDE.md: empty `src/agentic_evidence/` subpackages, `schemas/evidence/v0.1/`, `scenarios/`, `ui/`, `deploy/`, `docs/research/`, `tests/scenario/`, `tests/golden/`. Each placeholder names the milestone that fills it; none contains functionality.
-  - Tests: package smoke test and `tests/unit/test_doc_links.py`, which fails if any relative Markdown link or heading anchor in the repo is broken.
+  - Tests: package smoke test and `tests/unit/test_doc_links.py`, which fails if a relative Markdown link or heading anchor in the repo is broken. It checks inline links (including titled and `<angle>` destinations) and reference definitions, and fails on link syntax it can't parse or on a reference to an undefined label. It does not check links in raw HTML or undefined shortcut references (`[label]` alone); see the module docstring.
   - CI: `.github/workflows/ci.yml` (ruff, ruff format, mypy --strict, pytest on ubuntu + macos), `secret-scan.yml` (TruffleHog), `dependabot.yml` (uv + GitHub Actions). Actions are pinned to commit SHAs.
 - All ADRs are still **Proposed**.
 
@@ -124,6 +124,7 @@ Append one entry per working session. Newest first.
 
 | Date | Who | What changed | Next |
 |------|-----|-------------|------|
+| 2026-11-16 | lokeshramchand-ctrl | Doc-link test now checks titled, `<angle>`, and reference-style links, and fails on link syntax it can't parse instead of skipping it (issue #12); regression tests added | Maintainer review of the PR; separate issue for heading-anchor edge cases (`_emphasis_`, blockquoted headings) once GitHub's ids are confirmed |
 | 2026-11-14 | paolocostanzo | Research write-up `docs/research/mcp-approval-binding-and-digest-provenance.md` (#5 points 2 and 3) and index line in `docs/research/README.md`; no milestone state change | #6 ADR; S2/S3 specs issue; #4 for digest bytes |
 | 2026-11-08 | Claude Code (with SyedDS) | M0 governance docs, issue forms, PR template, CODEOWNERS, empty package, CI + secret scan + Dependabot, doc-link test; target directory layout with milestone placeholders; CLAUDE.md made local-only (git-ignored); removed redundant GETTING_STARTED.md and ROADMAP.md | PR + maintainer settings, issue #1 reply |
 | 2026-11-06 | - | Added CLAUDE.md, CONSTRAINTS.md, ARCHITECTURE.md, DECISIONS.md, HANDOFF.md; revised README.md | M0 review |
