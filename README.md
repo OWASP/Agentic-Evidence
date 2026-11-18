@@ -80,6 +80,7 @@ The initial release is not intended to be:
 - [Contributing](CONTRIBUTING.md): Contribution tracks, checks, and the definition of done.
 - [Handoff](HANDOFF.md): Current state, milestones with acceptance criteria, and open questions.
 - [Glossary](docs/glossary.md): Trust levels, gaps, claims, and other shared terms.
+- [Agentic Process Evidence integration](docs/integration/agentic-process-evidence.md): How to project APE session logs and process evidence into evidence records.
 - [Security Policy](SECURITY.md): How to report a vulnerability privately.
 - [Resources](RESOURCES.md): Standards, specifications, and related security projects.
 - [FAQ](FAQ.md): Project scope, evidence trust, telemetry limitations, and contribution questions.
