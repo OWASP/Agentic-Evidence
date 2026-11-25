@@ -70,12 +70,27 @@ Walk `timeline[]` in source order. The overlay is `eventId`, `event`, `ts`. Ever
 | `event`              | Record                                                             | Payload                                                                                                                                                                                              |
 | -------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `beforeSubmitPrompt` | `input.received`                                                   | Digest of the prompt. No raw `prompt`.                                                                                                                                                               |
-| `preToolUse`         | `tool.invocation`                                                  | `tool_name`. `invocation_id` = `tool_use_id` when present, otherwise empty. `args_digest` over `tool_input` when present. No `descriptor_digest`. No `side_effect` unless the source classifies one.  **Important**: a tool invocation that was blocked from firing will still be logged |
+| `preToolUse`         | `tool.invocation`                                                  | `tool_name`. `invocation_id` = `tool_use_id` when present, otherwise empty. `args_digest` over `tool_input` when present. No `descriptor_digest`. No `side_effect` unless the source classifies one.  **Important**: `preToolUse` is logged before any hook decision, so a call a hook blocked is still logged. This record means the call was attempted, not that it was dispatched. See [Attempted, not dispatched](#attempted-not-dispatched). |
 | `postToolUse`        | `tool.result` only when the event has a status or an output digest | Those fields only. Same `tool_use_id`.                                                                                                                                                               |
-| `afterAgentResponse` | none                                                               | Not `agent.decision`. Leave the text in the log.                                                                                                                                                     |
+| `afterAgentResponse` | none                                                               | Not `agent.decision`. Leave the text in the log. See [Agent outcome statements](#agent-outcome-statements).                                                                                                                                                     |
 | `sessionEnd`         | none                                                               | Not `run.end`. Later sessions may still belong to the process.                                                                                                                                       |
 | any other value      | none                                                               | Do not coerce it into a v0.1 kind.                                                                                                                                                                   |
 
+
+### Attempted, not dispatched
+
+A blocked call and a call whose response was lost both leave a `preToolUse` with no `postToolUse`. The log alone cannot tell them apart, and a later `ts` or a payload difference does not settle it (rule 3). Where the harness records the hook outcome, carry it with the record. Otherwise, whether the call left the host is a gap, not an inference. This matters because a `deny` followed by a `tool.invocation` on the same `invocation_id` evaluates to `contradicted` under ARCHITECTURE.md §4: a correctly blocked call must not read as an enforcement bypass. See #2.
+
+### Agent outcome statements
+
+`afterAgentResponse` produces no record in v0.1. Models can state that an action completed when the tool failed or the call was never dispatched (raised on #2), so the text is evidence of a claim, not of an effect.
+
+| Option | For | Against |
+| --- | --- | --- |
+| No record (v0.1, this document) | No v0.1 kind fits. `agent.decision` records a choice, not a report, and rule 3 forbids inventing one. | The agent's claim stays only in the log. An investigator cannot compare it with `tool.result` or with an observed effect. |
+| A future record kind for the agent's outcome statement | Makes the claim comparable with the tool's result and the observed effect. Shows when a model narrated success the evidence does not support. | Needs a schema change. Linking a response to a call needs a source field that names the `tool_use_id`, since a later `ts` does not. |
+
+If such a kind is added, it is emitted by `agent-runtime` on `self-report`, so it is `asserted`, and it never satisfies a requirement for an observed effect.
 
 `session_id` in the payload is carried source data. v0.1 has no session field, and it is not `run_id`. When `conversation_id` repeats `sessionId`, do not mint a second id. `parentSessionId` is not `parent_span_id` and not `caused_by`. `path_hashes` are file fingerprints, not `descriptor_digest` or `output_digest`. Emit `agent.decision` only when a source field names the earlier event. A later `ts` does not.
 
