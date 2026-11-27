@@ -47,6 +47,8 @@ The mapping from this project's records:
 
 `write_shared` makes AMEP's observer-independence rule apply to the write. That rule is the counterpart of #2's key rule: no asserted record satisfies an effect requirement.
 
+*This table maps records onto AMEP for this write-up only. It isn't a proposal for how trust is assigned here: this project assigns trust by channel (AR §4, EV-2), and signed evidence is deferred (OD-3).*
+
 No code was added to this repository.
 
 ## 3. Findings
@@ -93,12 +95,20 @@ No code was added to this repository.
    - AMEP answers one question per call: did what ran stay within authority? This project assigns a status per claim.
    - So E1 with the oracle present is `preserved`: the write happened and was authorized. The project's "not executed" claim is `contradicted` for the same records. Both are right; they answer different questions.
    - The contradiction becomes a verdict only when the tool signs its own "not executed" (E1, second row): violated.
-2. **C needs a record of the original to say "replay".** With the original invocation, the verifier knows the operation already took effect, and a second effect would be "executed twice" (control row). Without it, the refused call reads as a call that didn't run. That supports keeping `replay_rejected` distinct from `deny` (#2, item 1). The distinction rests on state that only the original's record carries.
+   - This comparison depends on #2. Here distinct keys and operators stand in for trust levels, but main assigns trust by channel (AR §4, EV-2), and `verified` (b) covers two independent sources agreeing on a decision, not on an effect. The independent effect observation has no trust mechanism in main yet. The readings that rest on it assume #2 adds one.
+2. **C needs a record of the original to say "replay".** With the original invocation, the verifier knows the operation already took effect, and a second effect would be "executed twice" (control row). Without it, the refused call reads as a call that didn't run. That supports keeping `replay_rejected` distinct from `deny` (#2, item 1). The distinction rests on state that only the original's record carries. Raised on [#2](https://github.com/OWASP/Agentic-Evidence/issues/2#issuecomment-7225315285).
 3. **Windows.**
    - The verifier reads the declared window as part of the grant, as #21's fixtures now do, so an effect inside it is `preserved`.
    - For this project, the window's source determines its trust. The verifier assumes it was signed with the grant, before the outcome was known.
    - A window stated only in the revocation record would need a different reading, which is the case #21 lists under what the scenario does not show.
-4. **Ordering needs declared clock bounds.** The verifier reaches `unresolved` (`ordering`) for `unordered-revocation` only because each clock's skew is declared in its key set. With no declared bound, it would compare the two times as given. That suggests the proposed gap ("a revocation that cannot be ordered against the effect") needs an input saying when two times can't be ordered. Otherwise every cross-system pair qualifies, or none does.
+4. **Ordering needs a declared bound per source.**
+   - Under main's default (AR §5), a run is ordered by `collected_at`, the recorder's clock. So every pair of records is orderable, but by arrival, not occurrence.
+   - Main already covers part of the question:
+     - EV-6 requires each ordering conclusion to say which clock it used;
+     - G-AUTHZ-002 compares a decision's `collected_at` with the invocation;
+     - G-TIME-001 flags a record whose `event_time` and `collected_at` differ by more than one global tolerance (default 5 s).
+   - None of these says when two `event_time`s from different sources can't be ordered at all, which is the case `unordered-revocation` describes. The verifier reaches `unresolved` (`ordering`) there only because each source's clock skew is declared. With no declared bound, it compares the two times as given.
+   - **Proposed change:** a skew bound declared for each emitting source, beside G-TIME-001's tolerance. Two `event_time`s from different sources are then unorderable when they differ by no more than the sum of the two bounds, and the proposed gap ("a revocation that cannot be ordered against the effect") fires on exactly those pairs. This would also answer HANDOFF Q4: the 5 s default becomes the fallback for a source that declares no bound. Raised on [#21](https://github.com/OWASP/Agentic-Evidence/issues/21#issuecomment-7225314821).
 
 ## 4. Gaps found in the verifier
 
