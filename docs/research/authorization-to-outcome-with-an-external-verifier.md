@@ -67,7 +67,7 @@ No code was added to this repository.
 | B2 | oracle present | "not executed" supported | preserved ("nothing executed") | — |
 | B2 | oracle removed | same gap as B1 | unresolved | `receipt` |
 | C | with the original invocation | no second effect; distinct from a denial | preserved | — |
-| C | without the original | distinct from a denial | preserved ("nothing executed") | — |
+| C | without the original | the refusal is recorded; the reported replay reason stays uncorroborated, since the original invocation record is missing | preserved ("nothing executed"): the refusal is read as a call that didn't run, with nothing to show it was a replay | — |
 | C | control: the replay took effect | — | violated, "executed twice" | — |
 | D1 | grant declares no window | — | violated (authority withdrawn before the effect) | — |
 | D1 | grant declares a 10 s window | — | preserved, the revocation named in the reason | — |
@@ -119,7 +119,7 @@ Mapping these scenarios found two places where AMEP itself was wrong. Both are f
 
 ## 5. Limitations
 
-- **This is one reading,** by the author of the verifier, of scenario text that is still changing; the scenario author has not reviewed it. Where the text is ambiguous, the mapping states its choice in `run.mjs`.
+- **This is one reading,** by the author of the verifier, of scenario text that is still changing. The scenario author checked the §3.1 "Expected" column against #2 and #21 on 27 November and corrected one cell, C without the original ([comment](https://github.com/OWASP/Agentic-Evidence/pull/22#issuecomment-7225639099)). The B1/B2 mapping and the D and E rows matched as written. The mapping choices in `run.mjs` weren't part of that check.
 - **Fixtures:** the packets are built from the scenario text, not from this project's fixtures, which wait for M1. When the fixtures land, rerunning against them is the real cross-check.
 - **Trust levels:** distinct keys and operators stand in for `asserted`, `observed` and `verified`. That carries signing assumptions this project has deferred (OD-3), so it is not a proposal for how trust is assigned here.
 - **Effect class:** `files.write` is classed `write_shared` so that the independence rule applies. For a call classed `write_local`, the verifier accepts the executing side's own receipt, which this project's key rule would not.
