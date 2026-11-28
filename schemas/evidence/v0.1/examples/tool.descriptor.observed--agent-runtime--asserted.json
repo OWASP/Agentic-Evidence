@@ -1,0 +1,37 @@
+{
+  "collected_at": "2026-01-01T00:00:07.001Z",
+  "correlation": {
+    "descriptor_digest": "sha256:c1b69eb2c88ec7785b8bbd07af48803f271dce6480d2e82db4d5f8f2b5fa4378"
+  },
+  "event_time": "2026-01-01T00:00:07.000Z",
+  "identity": {
+    "agent": "agent:helpdesk-bot",
+    "delegation_chain": [
+      "user:alice@example.com",
+      "agent:helpdesk-bot"
+    ],
+    "principal": "user:alice@example.com"
+  },
+  "kind": "tool.descriptor.observed",
+  "payload": {
+    "descriptor_digest": "sha256:c1b69eb2c88ec7785b8bbd07af48803f271dce6480d2e82db4d5f8f2b5fa4378",
+    "descriptor_ref": "descriptor:files.write@ex-0001",
+    "observed_via": "invocation",
+    "tool_name": "files.write"
+  },
+  "payload_digest": "sha256:6cb4a5fbf72032148985f5abe27ea2918721ba85a98863a44f2286cb5433c156",
+  "record_digest": "sha256:3bf5f84a31c255e499328b63e9c0d8647ef9e1c0c00d69053efe30c840d16ee5",
+  "record_id": "rec_ex_0007",
+  "run_id": "run_ex_0001",
+  "schema_version": "0.1.0",
+  "source": {
+    "channel": "self-report",
+    "component": "agent-runtime"
+  },
+  "trace": {
+    "parent_span_id": "0000000000000001",
+    "span_id": "0000000000000007",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "trust": "asserted"
+}

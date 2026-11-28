@@ -1,0 +1,37 @@
+{
+  "collected_at": "2026-01-01T00:00:06.001Z",
+  "correlation": {
+    "descriptor_digest": "sha256:c1b69eb2c88ec7785b8bbd07af48803f271dce6480d2e82db4d5f8f2b5fa4378"
+  },
+  "event_time": "2026-01-01T00:00:06.000Z",
+  "identity": {
+    "agent": "agent:helpdesk-bot",
+    "delegation_chain": [
+      "user:alice@example.com",
+      "agent:helpdesk-bot"
+    ],
+    "principal": "user:alice@example.com"
+  },
+  "kind": "tool.descriptor.observed",
+  "payload": {
+    "descriptor_digest": "sha256:c1b69eb2c88ec7785b8bbd07af48803f271dce6480d2e82db4d5f8f2b5fa4378",
+    "descriptor_ref": "descriptor:files.write@ex-0001",
+    "observed_via": "list_tools",
+    "tool_name": "files.write"
+  },
+  "payload_digest": "sha256:ec5f3c36af1d86991ca4dc081f502159dfe459b75ea5659ebad6a3914eec13e7",
+  "record_digest": "sha256:f3dd8cef7feababd475435a297c8dc1d8c2bf77edd11d19f069ff62beb0fab27",
+  "record_id": "rec_ex_0006",
+  "run_id": "run_ex_0001",
+  "schema_version": "0.1.0",
+  "source": {
+    "channel": "interception",
+    "component": "recorder-tap"
+  },
+  "trace": {
+    "parent_span_id": "0000000000000001",
+    "span_id": "0000000000000006",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "trust": "observed"
+}

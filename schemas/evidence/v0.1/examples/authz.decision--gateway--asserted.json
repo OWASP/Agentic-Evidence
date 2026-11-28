@@ -1,0 +1,38 @@
+{
+  "collected_at": "2026-01-01T00:00:11.001Z",
+  "correlation": {
+    "invocation_id": "inv_ex_0001"
+  },
+  "event_time": "2026-01-01T00:00:11.000Z",
+  "identity": {
+    "agent": "agent:helpdesk-bot",
+    "delegation_chain": [
+      "user:alice@example.com",
+      "agent:helpdesk-bot"
+    ],
+    "principal": "user:alice@example.com"
+  },
+  "kind": "authz.decision",
+  "payload": {
+    "decision": "allow",
+    "invocation_id": "inv_ex_0001",
+    "policy_digest": "sha256:95cec106b56d9de6ed7da0045eed1253021c703ad3f8ab906dd948130b780b79",
+    "policy_id": "policy:archive-write",
+    "subject": "agent:helpdesk-bot"
+  },
+  "payload_digest": "sha256:84ec8112ebef9271e3a0100cf39c4b5c0730672e5b9e8f6500f05b055511a67b",
+  "record_digest": "sha256:7ea7e6bbca52b6abd196d4305bdcd9279d41aeb6bf3f72874e4db76b9c601233",
+  "record_id": "rec_ex_0011",
+  "run_id": "run_ex_0001",
+  "schema_version": "0.1.0",
+  "source": {
+    "channel": "self-report",
+    "component": "gateway"
+  },
+  "trace": {
+    "parent_span_id": "0000000000000001",
+    "span_id": "000000000000000b",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "trust": "asserted"
+}

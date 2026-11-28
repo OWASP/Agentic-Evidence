@@ -1,0 +1,36 @@
+{
+  "collected_at": "2026-01-01T00:00:16.001Z",
+  "correlation": {
+    "invocation_id": "inv_ex_0001"
+  },
+  "event_time": "2026-01-01T00:00:16.000Z",
+  "identity": {
+    "agent": "agent:helpdesk-bot",
+    "delegation_chain": [
+      "user:alice@example.com",
+      "agent:helpdesk-bot"
+    ],
+    "principal": "user:alice@example.com"
+  },
+  "kind": "tool.result",
+  "payload": {
+    "invocation_id": "inv_ex_0001",
+    "output_digest": "sha256:cdc656afafbfac53b58bb8f29df85de7f2150892a5b1e045b920586f0f959a5a",
+    "status": "success"
+  },
+  "payload_digest": "sha256:90ab40a3293ec8cf4cebea261d0e1238e44dc1e36ba7677745f016787fb745c5",
+  "record_digest": "sha256:b1c280ddc0ea4531143b6164a89907bed7d1b3229fc4efc7002bd13d94fe0f5b",
+  "record_id": "rec_ex_0016",
+  "run_id": "run_ex_0001",
+  "schema_version": "0.1.0",
+  "source": {
+    "channel": "interception",
+    "component": "recorder-tap"
+  },
+  "trace": {
+    "parent_span_id": "000000000000000e",
+    "span_id": "0000000000000010",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "trust": "observed"
+}
