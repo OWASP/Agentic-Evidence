@@ -1,0 +1,42 @@
+{
+  "collected_at": "2026-01-01T00:00:12.001Z",
+  "correlation": {
+    "invocation_id": "inv_ex_0001"
+  },
+  "event_time": "2026-01-01T00:00:12.000Z",
+  "identity": {
+    "agent": "agent:helpdesk-bot",
+    "delegation_chain": [
+      "user:alice@example.com",
+      "agent:helpdesk-bot"
+    ],
+    "principal": "user:alice@example.com"
+  },
+  "kind": "authz.decision",
+  "payload": {
+    "decision": "allow",
+    "invocation_id": "inv_ex_0001",
+    "policy_digest": "sha256:95cec106b56d9de6ed7da0045eed1253021c703ad3f8ab906dd948130b780b79",
+    "policy_id": "policy:archive-write",
+    "subject": "agent:helpdesk-bot",
+    "verified_against": [
+      "rec_ex_0010",
+      "rec_ex_0011"
+    ]
+  },
+  "payload_digest": "sha256:c689fd2e35f6398656e3e69de11a27270732c675caee14f567db9c96b977c6b8",
+  "record_digest": "sha256:699e9414945a837b5fd19c0f7767e79e74a747bb464edd32c2eb3cdb1c29769e",
+  "record_id": "rec_ex_0012",
+  "run_id": "run_ex_0001",
+  "schema_version": "0.1.0",
+  "source": {
+    "channel": "reference-check",
+    "component": "recorder-tap"
+  },
+  "trace": {
+    "parent_span_id": "0000000000000001",
+    "span_id": "000000000000000c",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "trust": "verified"
+}

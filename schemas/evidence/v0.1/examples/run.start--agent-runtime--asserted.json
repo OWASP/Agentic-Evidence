@@ -1,0 +1,34 @@
+{
+  "collected_at": "2026-01-01T00:00:01.001Z",
+  "correlation": {},
+  "event_time": "2026-01-01T00:00:01.000Z",
+  "identity": {
+    "agent": "agent:helpdesk-bot",
+    "delegation_chain": [
+      "user:alice@example.com",
+      "agent:helpdesk-bot"
+    ],
+    "principal": "user:alice@example.com"
+  },
+  "kind": "run.start",
+  "payload": {
+    "scenario_id": "examples",
+    "seed": 1,
+    "status": "started",
+    "variant": "full"
+  },
+  "payload_digest": "sha256:51f651b3f4b32a82e75361b4c67676448067038f383680ca00fbf1d51dc3ec82",
+  "record_digest": "sha256:dd2b4fb99ca84c3ac0a99c64e79f9c901c24b904dbafd0dec8496a1d09535418",
+  "record_id": "rec_ex_0001",
+  "run_id": "run_ex_0001",
+  "schema_version": "0.1.0",
+  "source": {
+    "channel": "self-report",
+    "component": "agent-runtime"
+  },
+  "trace": {
+    "span_id": "0000000000000001",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "trust": "asserted"
+}

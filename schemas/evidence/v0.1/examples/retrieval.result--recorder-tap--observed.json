@@ -1,0 +1,34 @@
+{
+  "collected_at": "2026-01-01T00:00:04.001Z",
+  "correlation": {},
+  "event_time": "2026-01-01T00:00:04.000Z",
+  "identity": {
+    "agent": "agent:helpdesk-bot",
+    "delegation_chain": [
+      "user:alice@example.com",
+      "agent:helpdesk-bot"
+    ],
+    "principal": "user:alice@example.com"
+  },
+  "kind": "retrieval.result",
+  "payload": {
+    "content_digest": "sha256:d80818a7c376bc6022d00e078f4cff3c0d92bc0121798ba77621de1d4740bcfd",
+    "doc_id": "doc-7",
+    "source_uri": "https://kb.example.com/articles/doc-7"
+  },
+  "payload_digest": "sha256:ab908998aa55754a4a002664e3cc55f409f75d5da27d68c7184b2cdf19bde9dd",
+  "record_digest": "sha256:708314ef57b6a9c4291dd7c5d0e509a505d187c1c1865f66307a38c7be07f31d",
+  "record_id": "rec_ex_0004",
+  "run_id": "run_ex_0001",
+  "schema_version": "0.1.0",
+  "source": {
+    "channel": "interception",
+    "component": "recorder-tap"
+  },
+  "trace": {
+    "parent_span_id": "0000000000000001",
+    "span_id": "0000000000000004",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "trust": "observed"
+}

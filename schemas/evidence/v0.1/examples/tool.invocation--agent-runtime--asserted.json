@@ -1,0 +1,42 @@
+{
+  "collected_at": "2026-01-01T00:00:13.001Z",
+  "correlation": {
+    "caused_by": [
+      "rec_ex_0009"
+    ],
+    "descriptor_digest": "sha256:c1b69eb2c88ec7785b8bbd07af48803f271dce6480d2e82db4d5f8f2b5fa4378",
+    "invocation_id": "inv_ex_0001"
+  },
+  "event_time": "2026-01-01T00:00:13.000Z",
+  "identity": {
+    "agent": "agent:helpdesk-bot",
+    "delegation_chain": [
+      "user:alice@example.com",
+      "agent:helpdesk-bot"
+    ],
+    "principal": "user:alice@example.com"
+  },
+  "kind": "tool.invocation",
+  "payload": {
+    "args_digest": "sha256:b1d0caf63b3dd1cad36abb5ebb91d009ac0ac0ffc3baf011087b151e8b4a31bd",
+    "descriptor_digest": "sha256:c1b69eb2c88ec7785b8bbd07af48803f271dce6480d2e82db4d5f8f2b5fa4378",
+    "invocation_id": "inv_ex_0001",
+    "side_effect": "external",
+    "tool_name": "files.write"
+  },
+  "payload_digest": "sha256:53dfd9b735529f121d1f5ea171742bc707daffcf1bfcf5d7744e187c2c9d51b1",
+  "record_digest": "sha256:bc60b285dd9ee975e6446a9b4728081bc0f32e6f9ae8388ce6b851606e14c84d",
+  "record_id": "rec_ex_0013",
+  "run_id": "run_ex_0001",
+  "schema_version": "0.1.0",
+  "source": {
+    "channel": "self-report",
+    "component": "agent-runtime"
+  },
+  "trace": {
+    "parent_span_id": "0000000000000001",
+    "span_id": "000000000000000d",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "trust": "asserted"
+}

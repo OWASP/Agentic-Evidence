@@ -1,0 +1,39 @@
+{
+  "collected_at": "2026-01-01T00:00:05.001Z",
+  "correlation": {
+    "descriptor_digest": "sha256:c1b69eb2c88ec7785b8bbd07af48803f271dce6480d2e82db4d5f8f2b5fa4378"
+  },
+  "event_time": "2026-01-01T00:00:05.000Z",
+  "identity": {
+    "agent": "agent:helpdesk-bot",
+    "delegation_chain": [
+      "user:alice@example.com",
+      "agent:helpdesk-bot"
+    ],
+    "principal": "user:alice@example.com"
+  },
+  "kind": "reference.pin",
+  "payload": {
+    "expected_digest": "sha256:c1b69eb2c88ec7785b8bbd07af48803f271dce6480d2e82db4d5f8f2b5fa4378",
+    "pin_source": "scenario-fixture:examples/pins.yaml",
+    "subject": {
+      "kind": "tool.descriptor",
+      "tool_name": "files.write"
+    }
+  },
+  "payload_digest": "sha256:388932b8b2f99884fc3b0f5d5550c9c94445e9b1c9254f21cbb814ecaff5d0df",
+  "record_digest": "sha256:e445e9b29d6607daedb4ed8de47e00b850b5a85aa42364fbac851c49ea41252e",
+  "record_id": "rec_ex_0005",
+  "run_id": "run_ex_0001",
+  "schema_version": "0.1.0",
+  "source": {
+    "channel": "self-report",
+    "component": "scenario-fixture"
+  },
+  "trace": {
+    "parent_span_id": "0000000000000001",
+    "span_id": "0000000000000005",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "trust": "asserted"
+}
