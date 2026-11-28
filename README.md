@@ -122,6 +122,7 @@ The initial release is not intended to be:
 - [Decisions](DECISIONS.md): Architecture decision records and their status.
 - [Research](docs/research/README.md): Research write-ups and the issues they inform.
 - [Glossary](docs/glossary.md): Trust levels, gaps, claims, and other shared terms.
+- [Agentic Process Evidence integration](docs/integration/agentic-process-evidence.md): How to project APE session logs and process evidence into evidence records.
 - [Security Policy](SECURITY.md): How to report a vulnerability privately.
 - [Resources](RESOURCES.md): Standards, specifications, and related security projects.
 - [FAQ](FAQ.md): Project scope, evidence trust, telemetry limitations, and contribution questions.
